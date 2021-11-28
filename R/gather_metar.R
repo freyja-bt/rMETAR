@@ -89,3 +89,8 @@ gather_metar <- function(stations, hours=48, path){
 return(new_data)
 
 }
+
+
+new_entries <- gather_metar(stations = c("KPDK","KATL"), path = "data/metar_data.csv")
+
+write_csv(new_entries, "data/metar_data.csv", append = T, quote="needed")
