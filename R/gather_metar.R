@@ -1,3 +1,13 @@
+library(dplyr)
+library(tidyr)
+library(xml2)
+library(rvest)
+library(lubridate)
+library(vroom)
+library(purrr)
+library(stringr)
+library(readr)
+
 weather_abbrev <- c("BC", "BL", "DR", "FZ", "MI", "PR", "SH", "TS", "DZ", "GR", "GS", "IC", "PL", "RA", "SG", "SN", "UP", "BR", "DU", "FG", "FU", "HZ", "SA", "VA", "DS", "FC", "PO", "SQ", "SS")
 cloud_abbrev <- c("CLR", "SKC", "NSC", "FEW", "SCT", "BKN", "OVC")
 
