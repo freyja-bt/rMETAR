@@ -101,6 +101,6 @@ return(new_data)
 }
 
 
-new_entries <- gather_metar(stations = c("KPDK","KATL"), path = "https://raw.githubusercontent.com/freyja-bt/rMETAR/main/data/metar_data.csv")
+new_entries <- gather_metar(stations = c("KPDK","KATL"), path = "data/metar_runs.csv")
 
 write_csv(new_entries, "data/metar_data.csv", append = T, quote="needed")
