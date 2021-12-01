@@ -81,7 +81,7 @@ gather_metar <- function(stations, hours=48, path){
   cat("Rows:",nrow(metar_tib),"\n")
 
 
-  lastid <- last(current$entryid)%>%
+  lastid <- max(current$entryid)%>%
     as.numeric()
 
   new_data <- anti_join(metar_tib,current)%>%
@@ -103,4 +103,6 @@ return(new_data)
 
 new_entries <- gather_metar(stations = c("KPDK","KATL"), path = "data/metar_runs.csv")
 
-write_csv(new_entries, "data/metar_runs.csv", append = T, quote="needed")
+write_csv(new_entries, "data/metar_runs.csv", append = T)
+
+
