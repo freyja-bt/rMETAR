@@ -103,4 +103,4 @@ return(new_data)
 
 new_entries <- gather_metar(stations = c("KPDK","KATL"), path = "data/metar_runs.csv")
 
-write_csv(new_entries, "data/metar_runs.csv", append = T, quote="needed")
+write_csv(new_entries, "data/metar_runs.csv", append = T)
