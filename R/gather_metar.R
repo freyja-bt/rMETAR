@@ -81,7 +81,7 @@ gather_metar <- function(stations, hours=48, path){
   cat("Rows:",nrow(metar_tib),"\n")
 
 
-  lastid <- last(current$entryid)%>%
+  lastid <- max(current$entryid)%>%
     as.numeric()
 
   new_data <- anti_join(metar_tib,current)%>%
