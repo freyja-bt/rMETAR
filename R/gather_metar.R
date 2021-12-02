@@ -16,6 +16,7 @@ gather_metar <- function(stations, hours=48, path){
   current <<- vroom(
     path,
     col_types = cols(
+      entryid = col_integer(),
       .default = col_character()
       )
     )
@@ -85,6 +86,7 @@ gather_metar <- function(stations, hours=48, path){
     as.numeric()
 
   new_data <- anti_join(metar_tib,current)%>%
+    arrange(obsdate, datetime)%>%
     mutate(
       entryid = as.character(lastid + row_number())
       )%>%
