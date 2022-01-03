@@ -11,7 +11,7 @@ library(readr)
 weather_abbrev <- c("BC", "BL", "DR", "FZ", "MI", "PR", "SH", "TS", "DZ", "GR", "GS", "IC", "PL", "RA", "SG", "SN", "UP", "BR", "DU", "FG", "FU", "HZ", "SA", "VA", "DS", "FC", "PO", "SQ", "SS")
 cloud_abbrev <- c("CLR", "SKC", "NSC", "FEW", "SCT", "BKN", "OVC")
 
-gather_metar <- function(stations, hours=48, path){
+gather_metar <- function(stations, hours=120, path){
 
   current <<- vroom(
     path,
@@ -42,8 +42,8 @@ gather_metar <- function(stations, hours=48, path){
   metar_tib <<- map_df(metar_data,function(i){
 
     sep <- str_split(i," ")%>%
-      unlist()%>%
-      .[1:str_which(., "^RMK$")-1]
+      unlist()#%>%
+      # .[1:str_which(., "^RMK$")-1]
 
     tibble(
       station = str_sub(i, 1, 4),
@@ -74,7 +74,7 @@ gather_metar <- function(stations, hours=48, path){
         .fns = str_trim
       ),
       across(
-        .fns=\(x) na_if(x,"")
+        .fns=function(x) na_if(x,"")
         )
       )
     })
