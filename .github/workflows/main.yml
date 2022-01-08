@@ -76,7 +76,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Runscript
         run: |
-          source("R/gather_metar.R")
+          source("gather_metar.R")
         shell: Rscript {0}
 
       - name: Commit files

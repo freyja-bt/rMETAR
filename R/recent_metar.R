@@ -20,7 +20,7 @@ recent_metar <- function(x, path){
   lastid <- max(current$entryid)%>%
     as.numeric()
   
-  new_data <- dplyr::anti_join(metar_tib,current)%>%
+  new_data <- dplyr::anti_join(x,current)%>%
     dplyr::arrange(obsdate, datetime)%>%
     dplyr::mutate(
       entryid = as.character(lastid + dplyr::row_number())
