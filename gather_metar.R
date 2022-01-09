@@ -1,5 +1,3 @@
-devtools::install_github("https://github.com/freyja-bt/rMETAR")
-library(rMETAR)
 
 new_entries <- read_metar(stations = c("KPDK","KATL"), hours=120)%>%
   recent_metar(path = "data/metar_runs.csv")
