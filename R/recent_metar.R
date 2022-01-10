@@ -27,6 +27,8 @@ recent_metar <- function(x, path){
     )%>%
     dplyr::select(entryid, dplyr::everything())
   
+  cat("\nNew Rows: ",nrow(new_data),"\n")
+  
   return(new_data)
   
 }
