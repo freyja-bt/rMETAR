@@ -13,10 +13,10 @@ Imports:
   dplyr,
   rvest,
   lubridate,
-  vroom,
   purrr,
   stringr,
-  magrittr
+  magrittr,
+  vroom
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
