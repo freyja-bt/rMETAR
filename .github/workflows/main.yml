@@ -78,9 +78,7 @@ jobs:
         shell: Rscript {0}
       
       - name: Install devtools
-        run: |
-          install.packages("devtools")
-          install.packages("readr")
+        run: install.packages("devtools")
         shell: Rscript {0}
 
       # Runs a single command using the runners shell
