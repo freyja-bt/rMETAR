@@ -76,14 +76,12 @@ jobs:
         run: |
           remotes::install_deps(dependencies = TRUE)
         shell: Rscript {0}
-      
-      - name: Install devtools
-        run: install.packages("devtools")
-        shell: Rscript {0}
 
       # Runs a single command using the runners shell
       - name: Runscript
         run: |
+          install.packages("devtools")
+          install.packages("readr")
           source("gather_metar.R")
         shell: Rscript {0}
 
