@@ -80,8 +80,6 @@ jobs:
       # Runs a single command using the runners shell
       - name: Runscript
         run: |
-          install.packages("devtools")
-          install.packages("readr")
           source("gather_metar.R")
         shell: Rscript {0}
 
