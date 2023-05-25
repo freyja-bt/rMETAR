@@ -1,4 +1,4 @@
-devtools::load_all()
+source("R/metar.R")
 new_entries <- read_metar(stations = c("KPDK","KATL"), hours=120)%>%
   recent_metar(path = "raw_data/metar_runs.csv")
 
