@@ -1,4 +1,3 @@
-
 weather_abbrev <- c("BC", "BL", "DR", "FZ", "MI", "PR", "SH", "TS", "DZ", "GR", "GS", "IC", "PL", "RA", "SG", "SN", "UP", "BR", "DU", "FG", "FU", "HZ", "SA", "VA", "DS", "FC", "PO", "SQ", "SS")
 
 cloud_abbrev <- c("CLR", "SKC", "NSC", "FEW", "SCT", "BKN", "OVC")
@@ -66,9 +65,11 @@ read_metar <- function(stations, hours = 48, wa = weather_abbrev, ca = cloud_abb
           TRUE ~ paste0(lubridate::year(lubridate::today("UTC")), stringr::str_pad(lubridate::month(lubridate::today("UTC")), pad = "0", width = 2, side = "left"), stringr::str_sub(datetime, 1, 2))
         ),
         dplyr::across(
+          .cols = dplyr::everything(),
           .fns = stringr::str_trim
         ),
         dplyr::across(
+          .cols = dplyr::everything(),
           .fns = function(x) dplyr::na_if(x, "")
         )
       )
